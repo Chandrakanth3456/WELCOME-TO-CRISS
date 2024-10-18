@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: palevioletred;
+            height: 100vh;
+        }
+        .chandra{
+            background-color: rgb(235, 118, 118);
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px 2px;
+        }
+        .chandrakanth{
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 10px;
+        }
+        .textarea{
+              /* font-size: large; */
+              font-family: sans-serif;
+              resize:none;
+              padding: 10px;
+              border: 2px solid black;
+              border-radius: 10px;
+              /* box-sizing:100px; */
+        }
+        .total-character{
+            color:greenyellow;
+        }
+        .remaining-character{
+            color: greenyellow;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="chandra">
+         <h2>Real-time character Counter</h2>
+         <textarea id="textarea" class="textarea" max-length="100" placeholder="place Write your text here....."></textarea>
+         <div class="chandrakanth">
+        <p>total-character :<span class="total-character" id="total-character">0</span></p>
+        <p>Remaining-character :<span class="remaining-character" id="remaining-character">100</span></p>
+         </div>
+    </div>
+    <script>
+        let textarea=document.getElementById("textarea");
+        let totalcharacter=document.getElementById("total-character");                                    
+        let Remainingcharacter=document.getElementById("remaining-character");
+
+
+        textarea.addEventListener("keyup",()=>{
+            updateCounter();
+                                                                                      
+        });                      
+        function updateCounter(){
+            totalcharacter.innerText=textarea.value.length;
+            Remainingcharacter.innerText=textarea.getAttribute('max-length')-textarea.value.length;
+        }
+        updateCounter();
+    </script>
+</body>
+</html>
